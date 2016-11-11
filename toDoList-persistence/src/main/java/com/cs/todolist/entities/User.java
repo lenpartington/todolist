@@ -5,11 +5,21 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
 @Table(catalog = "todolist")
+@NamedQueries({
+	  @NamedQuery(name="User.login",
+	              query="SELECT e FROM User e Where e.login= :login AND e.mdp = :mdp"),
+	  @NamedQuery(name="User.testUsername",
+	              query="SELECT e FROM User e WHERE e.login= :login"),
+	  /* @NamedQuery(name="Professor.findByName",
+	              query="SELECT e FROM Professor e WHERE e.name = :name")*/
+	})
 public class User {
 
 	private int id;

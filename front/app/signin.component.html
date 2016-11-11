@@ -1,0 +1,10 @@
+<div>
+  Nom : <input #nomID type="text" /><br/>
+  Prénom : <input #prenomID type="text" /><br/>
+  login : <input #loginID type="text" /><br/>
+  mot de passe : <input #pwdID type="text" />
+  <br/>
+  <div style="color:red" *ngIf="errorLog">Le login est déjà utilisé, veuillez changer <br/></div>
+<button (click)="checkLogin(prenomID.value,nomID.value,loginID.value, pwdID.value)">s'enregistrer</button>
+
+</div>

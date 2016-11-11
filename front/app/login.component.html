@@ -1,0 +1,26 @@
+<h1>My To-Do List</h1>
+<div *ngIf="user==null">
+  <div>
+login : <input #loginID type="text" /><br/>
+password : <input #pwdID type="text" />
+<br/>
+<div style="color:red" *ngIf="errorLog">pas de compte trouvé, veuillez verifier vos informations<br/></div>
+
+
+<button (click)="checkLogin(loginID.value, pwdID.value)">connexion</button>
+
+</div>
+<div *ngIf="!signin" >
+
+<button (click)="signinToggle()">s'enregistrer</button>
+
+</div>
+<div *ngIf="signin"><signin-app (userUpdated)="userUpdated($event)" [user]="user">Loading...X</signin-app></div>
+</div>
+<div *ngIf="user!=null">Hello {{user.prenom}}, Comment ca va?
+
+
+<button (click)="deconnexion()">deconnexion</button>
+<task-app>Loading...X</task-app>
+
+</div>
