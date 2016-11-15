@@ -1,26 +1,61 @@
-<h1>My To-Do List</h1>
-<div *ngIf="user==null">
-  <div>
-login : <input #loginID type="text" /><br/>
-password : <input #pwdID type="text" />
-<br/>
-<div style="color:red" *ngIf="errorLog">pas de compte trouvé, veuillez verifier vos informations<br/></div>
+<nav  class="navbar navbar-inverse navbar-fixed-top">
+  <div  class="container-fluid">
 
+<div class="row">
+  <div class="col-md-4">
+    <h2 id="titre" >
+      <span style="color:blue">My </span>
+      <span style="color:white">To</span>
+      <span style="color:blue">-</span>
+      <span style="color:white">Do</span>
+      <span style="color:yellow">List</span>
+    </h2>
+  </div>
 
-<button (click)="checkLogin(loginID.value, pwdID.value)">connexion</button>
+        <div id="welcome" *ngIf="user!=null" class="col-md-8 text-right">
+          <h3 id="welcomeName" class="text-center">
+            Hello <span id="username" style="color:yellow">{{user.prenom}}</span>, heureux de vous revoir !  <button  class="btn btn-primary" (click)="deconnexion()">deconnexion</button>
+          </h3>
+        </div>
+        <!--If user is not null-->
+        <div id="login" class="col-md-8 text-right login" *ngIf="user==null">
+          <div class="row">
+            <input placeHolder="login" #loginID type="text" />
+            <input placeHolder="password" #pwdID type="text" />
+            <button class="btn btn-success btn-sm" (click)="checkLogin(loginID.value, pwdID.value)">connexion</button>
+
+          </div>
+<div class="row">
+  <div   class="text-right login" *ngIf="!signin" >
+      <label >  Pas de compte? </label>
+  <button class="btn btn-info btn-sm" (click)="signinToggle()">s'enregistrer</button>
+
+  </div>
+</div>
+
+          <div style="color:red" *ngIf="errorLog">pas de compte trouvé, veuillez verifier vos informations<br/></div>
+
+        </div>
 
 </div>
-<div *ngIf="!signin" >
 
-<button (click)="signinToggle()">s'enregistrer</button>
+        </div>
+        </nav>
+        <div *ngIf="user==null">
 
+
+        <div id="signin" class="col-md-6 col-md-offset-3 panel panel-default" *ngIf="signin">
+
+            <div class="panel-heading text-center">
+          Enregistrement
+            </div>
+            <div class="panel-body">
+  <signin-app (userUpdated)="userUpdated($event)" [user]="user">Loading...X</signin-app>
+            </div>
+
+
+          </div>
 </div>
-<div *ngIf="signin"><signin-app (userUpdated)="userUpdated($event)" [user]="user">Loading...X</signin-app></div>
-</div>
-<div *ngIf="user!=null">Hello {{user.prenom}}, Comment ca va?
-
-
-<button (click)="deconnexion()">deconnexion</button>
-<task-app>Loading...X</task-app>
-
-</div>
+        <div *ngIf="user!=null">
+  <task-app [user]="user">Loading...X</task-app>
+        </div>

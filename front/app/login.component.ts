@@ -13,7 +13,8 @@ import 'rxjs/add/operator/catch';
 @Component({
     selector: "login-app",
     templateUrl: "app/login.component.html",
-
+    styleUrls: ['app/login.component.css']
+  
 })
 
 export class LoginComponent {

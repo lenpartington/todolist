@@ -1,8 +1,42 @@
-<div>
-  Nom : <input #nomID type="text" /><br/>
-  Prénom : <input #prenomID type="text" /><br/>
-  login : <input #loginID type="text" /><br/>
-  mot de passe : <input #pwdID type="text" />
+<div class="text-center">
+<table>
+  <tr>
+    <td class="text-right col-md-6">
+  Nom :
+    </td>
+    <td class="col-md-6">
+      <input #nomID type="text" />
+    </td>
+  </tr>
+  <tr>
+    <td class="text-right col-md-6">
+  Prénom :
+    </td>
+    <td class="col-md-6">
+      <input #prenomID type="text" />
+    </td>
+  </tr>
+  <tr>
+    <td class="text-right col-md-6" >
+login :
+    </td>
+    <td class="col-md-6">
+      <input #loginID type="text" />
+    </td>
+  </tr>
+  <tr>
+    <td class="text-right col-md-6">
+    mot de passe :
+    </td>
+    <td class="col-md-6">
+  <input #pwdID type="text" />
+    </td>
+  </tr>
+</table>
+
+
+ <br/>
+
   <br/>
   <div style="color:red" *ngIf="errorLog">Le login est déjà utilisé, veuillez changer <br/></div>
 <button (click)="checkLogin(prenomID.value,nomID.value,loginID.value, pwdID.value)">s'enregistrer</button>

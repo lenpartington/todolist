@@ -11,13 +11,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(catalog = "todolist")
+@NamedQueries({ @NamedQuery(name = "Task.getTasks", query = "SELECT e FROM Task e Where e.user= :user Order By e.statut"),
+		/*
+		 * @NamedQuery(name="User.testUsername",
+		 * query="SELECT e FROM User e WHERE e.login= :login"),
+		 * 
+		 * @NamedQuery(name="Professor.findByName",
+		 * query="SELECT e FROM Professor e WHERE e.name = :name")
+		 */
+})
 public class Task {
 
 	private int id;
@@ -33,12 +47,13 @@ public class Task {
 
 	}
 
-	public Task(String titre, String description, Date debutDate, Date finDate, User user) {
+	public Task(String titre, String description,
+			/* Date debutDate, Date finDate, */ User user) {
 		super();
 		Titre = titre;
 		Description = description;
-		this.debutDate = debutDate;
-		this.finDate = finDate;
+		// this.debutDate = debutDate;
+		// this.finDate = finDate;
 		this.statut = Statut.EN_ATTENTE;
 		this.user = user;
 	}
@@ -98,6 +113,7 @@ public class Task {
 		this.statut = statut;
 	}
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_user")
 	public User getUser() {

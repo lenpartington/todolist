@@ -20,7 +20,7 @@ public class TacheCRUDServiceTest {
 		System.out.println("========Arrange");
 		EntityManager entityManager = context.getBean(EntityManagerFactory.class).createEntityManager();
 		User user = entityManager.find(User.class, 1);
-		Task task = new Task("Acheter Pain", "Aller a auchan pour acheter du pain", null, null, user);
+		Task task = new Task("Acheter Pain", "Aller a auchan pour acheter du pain",  user);
 		TacheCRUDService enregistrerTacheService = (TacheCRUDService) context
 				.getBean("enregistrerTacheService");
 

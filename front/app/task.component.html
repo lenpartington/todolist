@@ -1,3 +1,54 @@
-<div>
-Voila tes taches!
+
+<div id="tasks" class="panel panel-default col-md-6 col-md-offset-3">
+
+
+  <div  id="taskTitle" class="panel-heading">
+  <p class="text-center">
+     Liste de vos taches
+  </p>
+  </div>
+  <table id="tasksTable" class="table table-bordered">
+
+    <tr>
+<td class="col-md-1 text-center">
+<span class="glyphicon glyphicon-th-list"></span>
+</td>
+<td class="col-md-6 text-center">
+  Creer une nouvelle tache <br/>
+<input placeholder="entrez votre tache" #newTaskID type="text" value="{{inputTask}}" (keydown.enter)="saveTask(newTaskID.value)"/>
+</td>
+<td class="col-md-1 text-center">
+
+  <button class="glyphicon glyphicon-plus" (click)="saveTask(newTaskID.value)" name="button"></button>
+
+
+</td>
+    </tr>
+  <!--div *ngIf="tasks && tasks.length>0" -->
+
+      <tr *ngFor="let task of tasks">
+        <td class="col-md-1 text-center">
+          <template [ngIf]="task.statut!='FINI'">
+            <button class="glyphicon glyphicon-unchecked" (click)="termineTask(task.id)" name="button"></button>
+
+
+
+          </template>
+          <template [ngIf]="task.statut=='FINI'">
+            <button class="glyphicon glyphicon-check" (click)="unfinishedTask(task.id)"></button>
+          </template>
+        </td>
+        <td class="col-md-6 text-center">
+        <del *ngIf="task.statut=='FINI'">  {{task.titre}} </del>
+
+  <template [ngIf]="task.statut!='FINI'"> {{task.titre}} </template>
+
+
+
+        </td>
+      <td class="col-md-1 text-center">
+          <button class="glyphicon glyphicon-trash" (click)="supprimeTask(task.id)" name="button"></button>
+      </td>
+      </tr>
+  </table>
 </div>

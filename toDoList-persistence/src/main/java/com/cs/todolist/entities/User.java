@@ -12,14 +12,13 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(catalog = "todolist")
-@NamedQueries({
-	  @NamedQuery(name="User.login",
-	              query="SELECT e FROM User e Where e.login= :login AND e.mdp = :mdp"),
-	  @NamedQuery(name="User.testUsername",
-	              query="SELECT e FROM User e WHERE e.login= :login"),
-	  /* @NamedQuery(name="Professor.findByName",
-	              query="SELECT e FROM Professor e WHERE e.name = :name")*/
-	})
+@NamedQueries({ @NamedQuery(name = "User.login", query = "SELECT e FROM User e Where e.login= :login AND e.mdp = :mdp"),
+		@NamedQuery(name = "User.testUsername", query = "SELECT e FROM User e WHERE e.login= :login"),
+		/*
+		 * @NamedQuery(name="Professor.findByName",
+		 * query="SELECT e FROM Professor e WHERE e.name = :name")
+		 */
+})
 public class User {
 
 	private int id;
@@ -30,16 +29,16 @@ public class User {
 	public Collection<Task> tasks;
 
 	public User() {
-		
+
 	}
-	
+
 	public User(String nom, String prenom, String login, String mdp) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.login = login;
 		this.mdp = mdp;
-		
+
 	}
 
 	@Id

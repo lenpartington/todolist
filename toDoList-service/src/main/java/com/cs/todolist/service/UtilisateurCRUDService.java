@@ -24,12 +24,18 @@ public class UtilisateurCRUDService {
 
 @Transactional
 	public User login(String username, String password) {
+	if(!testUSername(username)){
+		return null;
+	}
 		System.out.println("tentative de login d'un utilisateur");
 		return userDAO.login(username, password);
 		
 	}
 
 public User signin(String prenom, String nom, String username, String password) {
+	if(!testUSername(username)){
+		return null;
+	}
 	System.out.println("tentative de d'enregistrement d'un utilisateur");
 	if (userDAO.TestUsername(username)!=null) {
 		System.out.println("login deja utilisé");
@@ -38,6 +44,12 @@ public User signin(String prenom, String nom, String username, String password) 
 	
 	User user = new User(nom,prenom,username,password);
 	return userDAO.signin(user);
+}
+
+private boolean testUSername(String username){
+	if(username.isEmpty()){
+	return false;}
+	return true;
 }
 	
 }

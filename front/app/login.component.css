@@ -1,0 +1,25 @@
+@font-face { font-family: Sketch3D; src: url('../fonts/Sketch 3D.otf'); }
+/*.container{background-image: url("../images/1kit.jpg");}*/
+nav{background: rgba(0,0,0,0.5);
+padding: 15px;}
+#welcomeName {
+  color: white
+}
+
+#username{font-family: Sketch3D;}
+#signin{margin-top:100px;
+padding: 0;
+background-color: rgba(255, 255, 255, 0.5);}
+.login{padding: 5px;
+line-height: 1.1;}
+button{}
+#titre{
+  color:white;
+  font-family: Sketch3D;
+  text-align: center;
+  line-height: 100%;
+
+}
+#login label{color:white;}
+p{color:white}
+#header {background-color: green}

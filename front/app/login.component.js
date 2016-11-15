@@ -81,6 +81,7 @@ LoginComponent = __decorate([
     core_1.Component({
         selector: "login-app",
         templateUrl: "app/login.component.html",
+        styleUrls: ['app/login.component.css']
     }),
     __metadata("design:paramtypes", [http_1.Http])
 ], LoginComponent);
