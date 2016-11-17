@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <h2 id="titre" >
+    <h2 class="titre" >
       <span style="color:blue">My </span>
       <span style="color:white">To</span>
       <span style="color:blue">-</span>
@@ -58,4 +58,19 @@
 </div>
         <div *ngIf="user!=null">
   <task-app [user]="user">Loading...X</task-app>
+        </div>
+
+        <div *ngIf="user==null">
+  <div id="welcomeText" class="col-md-4 col-md-offset-4 panel panel-default">
+    <div class="panel-heading">
+      Welcome to you, dear stranger !
+    </div>
+    <div class="panel-body">
+      Welcome to the the <span class="titre" style="color:black; font-size:1.5em">My To-Do List</span>  website.<br>
+      Here you will be able to create your own todo list. <br>
+  The productivity you will gain in this this site will be the the most incredible of all the the time !
+      Prepare yourself to be the the most over-productive!!
+
+    </div>
+  </div>
         </div>

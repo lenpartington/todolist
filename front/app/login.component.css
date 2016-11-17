@@ -2,6 +2,11 @@
 /*.container{background-image: url("../images/1kit.jpg");}*/
 nav{background: rgba(0,0,0,0.5);
 padding: 15px;}
+#welcomeText{
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 150px;
+}
 #welcomeName {
   color: white
 }
@@ -13,8 +18,10 @@ background-color: rgba(255, 255, 255, 0.5);}
 .login{padding: 5px;
 line-height: 1.1;}
 button{}
-#titre{
+.titre{
+
   color:white;
+
   font-family: Sketch3D;
   text-align: center;
   line-height: 100%;
